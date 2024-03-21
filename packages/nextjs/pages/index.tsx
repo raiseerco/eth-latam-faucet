@@ -4,8 +4,9 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { useZuAuth } from "zuauth";
-import { MetaHeader } from "~~/components/MetaHeader";
 import { Footer } from "~~/components/Footer";
+// eslint-disable-next-line prettier/prettier
+import { MetaHeader } from "~~/components/MetaHeader";
 import { notification } from "~~/utils/scaffold-eth";
 import { VALID_EVENT_IDS } from "~~/utils/zupassConstants";
 

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c015d92a-0130-4cac-af29-7a9b79fadfc8/deploy-status)](https://app.netlify.com/sites/faucet-ethlatam/deploys)
+
 # 🏗 Devconnect Zupass: SE2 Starter Kit
 
 TLDR: 🎥 [watch the intro video here](https://youtu.be/7SGaMHOYc04)
@@ -5,6 +7,7 @@ TLDR: 🎥 [watch the intro video here](https://youtu.be/7SGaMHOYc04)
 Get started with [Zupass](https://github.com/proofcarryingdata/zupass) to generate proofs & verify PCDs (Proof-Carrying Data).
 
 In this Starter Kit you'll find an example of how to generate a proof and verify it on the backend.
+
 - **Frontend** (check `packages/nextjs/pages/index.tsx`):
   - Using `zuauth` we generate a popup where you can generate a proof in your Zupass account.
   - It then sends the PCD to the backend.
@@ -21,27 +24,32 @@ In this Starter Kit you'll find an example of how to generate a proof and verify
 ### 🏃‍♀️ Quick Start
 
 1. Clone the repo
+
 ```bash
 git clone https://github.com/BuidlGuidl/devconnect-zupass-se2
 cd devconnect-zupass-se2
 ```
 
 2. Install dependencies
+
 ```bash
 yarn install
 ```
 
 3. Start the local hardhat chain
+
 ```bash
 yarn chain
 ```
 
 4. On a second terminal, deploy the contracts
+
 ```bash
 yarn deploy
 ```
 
 5. Start the frontend
+
 ```bash
 yarn start
 ```
@@ -76,4 +84,3 @@ https://www.npmjs.com/package/@pcd/zk-eddsa-event-ticket-pcd
 https://www.npmjs.com/package/@pcd/eddsa-ticket-pcd
 https://www.npmjs.com/package/@pcd/semaphore-identity-pcd
 https://www.npmjs.com/package/@pcd/eddsa-ticket-pcd
-

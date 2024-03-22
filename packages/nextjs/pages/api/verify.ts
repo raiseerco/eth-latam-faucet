@@ -21,7 +21,7 @@ const client = createPublicClient({
 // const account = mnemonicToAccount(process.env.MNEMONIC as string);
 const account = privateKeyToAccount(`0x${process.env.WALLET_PRIVATE_KEY}`);
 
-const gasDrop = parseEther("0.00009");
+const gasDrop = parseEther("0.0003");
 const daiDrop = parseEther("5");
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

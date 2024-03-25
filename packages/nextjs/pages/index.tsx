@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { NextPage } from "next";
@@ -20,7 +21,7 @@ const fieldsToReveal = {
 };
 
 const Home: NextPage = () => {
-  const [verifiedBackend, setVerifiedBackend] = useState(false);
+  // const [verifiedBackend, setVerifiedBackend] = useState(false);
   const { authenticate, pcd } = useZuAuth();
   const { address: connectedAddress } = useAccount();
 
@@ -41,56 +42,56 @@ const Home: NextPage = () => {
     );
   }, [authenticate, connectedAddress]);
 
-  const sendPCDToServer = async () => {
-    let response;
-    if (!pcd) {
-      notification.error("No PCD found!");
-      return;
-    }
+  // const sendPCDToServer = async () => {
+  //   let response;
+  //   if (!pcd) {
+  //     notification.error("No PCD found!");
+  //     return;
+  //   }
 
-    if (!connectedAddress) {
-      notification.error("Please connect wallet");
-      return;
-    }
-    try {
-      console.log("PCD: ", pcd);
-      console.log("connectedAddress: ", connectedAddress);
+  //   if (!connectedAddress) {
+  //     notification.error("Please connect wallet");
+  //     return;
+  //   }
+  //   try {
+  //     // console.log("PCD: ", pcd);
+  //     // console.log("connectedAddress: ", connectedAddress);
 
-      response = await fetch("/api/verify", {
-        method: "POST",
-        body: JSON.stringify({
-          pcd: pcd,
-          address: connectedAddress,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (e) {
-      console.log("Error detectado: ", e);
-      notification.error(`Error: ${e}`);
-      return;
-    }
+  //     response = await fetch("/api/verify", {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         pcd: pcd,
+  //         address: connectedAddress,
+  //       }),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //   } catch (e) {
+  //     console.log("Error detectado: ", e);
+  //     notification.error(`Error: ${e}`);
+  //     return;
+  //   }
 
-    const data = await response.json();
-    console.log(data);
-    setVerifiedBackend(true);
-    if (data?.error) {
-      notification.error(
-        <>
-          <p className="font-bold m-0">Error</p>
-          <p className="m-0">{data?.message}</p>
-        </>,
-      );
-    } else {
-      notification.success(
-        <>
-          <p className="font-bold m-0">Usuario Registrado!</p>
-          <p className="m-0">{data?.message}</p>
-        </>,
-      );
-    }
-  };
+  //   const data = await response.json();
+  //   console.log(data);
+  //   setVerifiedBackend(true);
+  //   if (data?.error) {
+  //     notification.error(
+  //       <>
+  //         <p className="font-bold m-0">Error</p>
+  //         <p className="m-0">{data?.message}</p>
+  //       </>,
+  //     );
+  //   } else {
+  //     notification.success(
+  //       <>
+  //         <p className="font-bold m-0">Usuario Registrado!</p>
+  //         <p className="m-0">{data?.message}</p>
+  //       </>,
+  //     );
+  //   }
+  // };
 
   return (
     <>
@@ -107,8 +108,18 @@ const Home: NextPage = () => {
             filter: "invert(100%)",
           }}
         />
-        <h1 className="">Bienvenid@ al Faucet de ETH LATAM!</h1>
+        <h2 className="">Bienvenid@ al Faucet de ETH LATAM!</h2>
+
         <div className="w-full flex flex-col sm:flex-row justify-evenly font-pixel gap-8">
+          <button
+            className="px-2 sm:px-6 py-2 color-secondary border-4 border-secondary shadow-secondary text-center disabled:opacity-30"
+            disabled={true}
+          >
+            <h3>Round finished!</h3>
+          </button>
+        </div>
+
+        {/* <div className="w-full flex flex-col sm:flex-row justify-evenly font-pixel gap-8">
           <button
             className="px-2 sm:px-6 py-2 color-secondary border-4 border-secondary shadow-secondary text-center disabled:opacity-30"
             onClick={getProof}
@@ -138,7 +149,8 @@ const Home: NextPage = () => {
               <h3>VOTA!</h3>
             </button>
           )}
-        </div>
+        </div> */}
+
         <Footer />
       </div>
     </>
